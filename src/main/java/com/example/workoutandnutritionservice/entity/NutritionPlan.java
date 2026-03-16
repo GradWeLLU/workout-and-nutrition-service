@@ -17,8 +17,10 @@ public class NutritionPlan {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Column(name = "start_date")
     private Date startDate;
 
+    @Column(name = "end_date")
     private Date endDate;
 
     @OneToMany(mappedBy = "nutritionPlan", cascade = CascadeType.ALL)
