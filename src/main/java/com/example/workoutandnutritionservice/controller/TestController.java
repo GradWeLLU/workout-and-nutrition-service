@@ -18,7 +18,7 @@ public class TestController {
 
     @GetMapping("/user")
     public WorkoutRequestDTO testUserClient(@RequestHeader("Authorization") String jwtToken){
-        return userClient.getUserById(jwtToken);
+        return userClient.getWorkoutDetails(jwtToken);
     }
     @PostMapping("/generate")
     public AIResponseDTO testAIChain(@RequestBody WorkoutRequestDTO workoutRequest){
