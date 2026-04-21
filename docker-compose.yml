@@ -34,6 +34,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://workout-db:5432/workout_nutrition
       SPRING_DATASOURCE_USERNAME: workout
       SPRING_DATASOURCE_PASSWORD: password
+      JWT_SECRET: ${JWT_SECRET}
 
     depends_on:
       workout-db:
