@@ -10,12 +10,7 @@
         <version>3.4.5</version>
         <relativePath/>
     </parent>
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
+
 
     <groupId>com.example</groupId>
     <artifactId>workout-and-nutrition-service</artifactId>
