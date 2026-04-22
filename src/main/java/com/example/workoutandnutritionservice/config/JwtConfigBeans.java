@@ -18,8 +18,8 @@ public class JwtConfigBeans {
 
             return new UsernamePasswordAuthenticationToken(
                     principal,
-                    null
-                    //List.of()
+                    null,
+                    List.of()
             );
         };
     }

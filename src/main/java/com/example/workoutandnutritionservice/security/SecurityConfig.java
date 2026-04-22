@@ -28,7 +28,7 @@ public class SecurityConfig {
                         .requestMatchers("/public/**").permitAll()
                         .requestMatchers("/health").permitAll()
                         .requestMatchers("/test/**").permitAll()// allow health endpoint
-                        .requestMatchers("/workouts/**").permitAll()
+                        .requestMatchers("/workouts/**").authenticated()
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(ex -> ex

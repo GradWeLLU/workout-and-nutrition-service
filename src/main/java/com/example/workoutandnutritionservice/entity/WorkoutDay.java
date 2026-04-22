@@ -28,7 +28,7 @@ public class WorkoutDay {
     @Column(nullable = false)
     private String focus;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "workout_day_exercises",
             joinColumns = @JoinColumn(name = "workout_day_id"),
