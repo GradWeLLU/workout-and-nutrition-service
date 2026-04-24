@@ -1,5 +1,8 @@
 package com.example.workoutandnutritionservice.entity;
 
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
 import lombok.Getter;
@@ -19,24 +22,22 @@ public class Meal {
     private UUID id;
 
     @Column(name="meal_type")
-    private String mealType;
+    private String name;
 
     @Positive
     @Column(name = "total_calories")
-    private int totalCalories;
+    private int calories;
 
-    @Column(name = "total_macros",columnDefinition = "jsonb")
-    private String totalMacros;
+    private int protein;
 
-    @Column(name="total_micros",columnDefinition = "jsonb")
-    private String totalMicros;
+    private int carbs;
 
-    @ManyToOne
-    @JoinColumn(name = "nutrition_plan_id")
-    private NutritionPlan nutritionPlan;
+    private int fats;
 
-    @OneToMany(mappedBy = "meal", cascade = CascadeType.ALL)
-    private List<FoodItem> foodItems;
+    @ElementCollection
+    @CollectionTable(name = "meal_ingredients", joinColumns = @JoinColumn(name = "meal_id"))
+    @Column(name = "ingredient")
+    private List<String> ingredients;
 
 
 }

@@ -1,10 +1,10 @@
 package com.example.workoutandnutritionservice.entity;
 
+import com.example.workoutandnutritionservice.enumeration.PlanStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,13 +17,19 @@ public class NutritionPlan {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = "start_date")
-    private Date startDate;
+    @Column(name = "user_id")
+    private UUID userId;
 
-    @Column(name = "end_date")
-    private Date endDate;
+    private String goal;
 
-    @OneToMany(mappedBy = "nutritionPlan", cascade = CascadeType.ALL)
-    private List<Meal> meals;
+    @Column(name = "daily_calories")
+    private int dailyCalories;
+
+    @Enumerated(EnumType.STRING)
+    private PlanStatus status;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "nutrition_plan_id")
+    private List<MealDay> mealDays;
 
 }
